@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Sliding Doors Animation - Sujatha</title>
+  <style>
+  #doors {
+	position: relative;
+  }
+
+  #fixed_doors {
+	position: relative;
+  }
+  #left_door {  
+    position: absolute; 
+	left :116px ;
+	top : 5px;   
+  }  
+  #right_door {    
+    position: absolute;   
+	left : 221.75px;
+	top : 5px;    
+  }
+  
+  </style>
+ <script src="js/jquery-3.5.0.js"></script>
+</head>
+<body>
+ 
+<div id="doors">
+		
+	<div id="sliding_doors">
+		<div id="left_door">
+			<img src="images/leftdoor.png"/>
+		</div>
+		<div id="right_door">
+			<img src="images/rightdoor.png"/>
+		</div>
+	</div>
+			<div id="fixed_doors">
+		<img src="images/fixeddoor.png"/>
+	</div>
+	
+</div> 
+<script>
+  var idLeft = "#right_door";
+  var idRight = "#left_door";
+  
+  function slide_left_fn(){
+		idLeft = (idLeft=="#left_door")?"#right_door":"#left_door";
+		$(idLeft).delay(1000).animate({left: "-=97.5"}, 1000, function(){slide_right_fn();});
+   }
+   
+   function slide_right_fn(){
+		idRight = (idRight=="#left_door")?"#right_door":"#left_door";
+		$(idRight).delay(1000).animate({left: "+=97.5"}, 1000, function(){slide_left_fn();});
+   }
+   
+    $(document).ready(function() {
+            slide_left_fn();             
+            slide_right_fn();             
+     }); 
+   
+
+</script>
+ 
+</body>
+</html>
